@@ -1,0 +1,40 @@
+:root {
+    --darkcolor: #2a3927;
+    --aqua: #25C0C0;
+    --yellow: #FFBC30;
+    --fancy-font: 'Yellowtail', cursive;
+    --text-font: 'Raleway', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--text-font);
+    color: var(--darkcolor);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    min-height: 100%;
+}
+
+h1,
+h2 {
+    font-family: var(--fancy-font);
+}
+
+a {
+    text-decoration: none;
+    color: var(--darkcolor);
+}
+
+a:hover {
+    opacity: 60%;
+    /* color: var(--aqua); */
+}

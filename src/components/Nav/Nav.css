@@ -1,0 +1,21 @@
+nav {
+    background-color: var(--yellow);
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 8px 1px rgb(227, 227, 227);
+}
+
+#nav-title {
+    padding: 20px;
+    font-size: 68px;
+    transform: rotate(-15deg);
+    margin-top: 30px;
+}
+
+#nav-controls {
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}

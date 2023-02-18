@@ -6,23 +6,26 @@ import ProjectPage from "./pages/ProjectPage";
 
 // Components
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 // CSS
 import "./App.css";
 
-const HeaderLayout = () => (
-  <div>
+const Layout = () => (
+  <>
     <Nav />
     <Outlet />
-  </div>
+    <Footer />
+  </>
 );
+
 
 const router = createBrowserRouter([
   {
-    element: <HeaderLayout />,
+    element: <Layout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/project", element: <ProjectPage /> },
+      { path: "/project/:id", element: <ProjectPage /> },
     ],
   },
 ]);
