@@ -1,5 +1,6 @@
 footer {
     display: flex;
+    flex-direction: column;
     background-color: var(--darkcolor);
     color: white;
     height: 200px;
@@ -8,4 +9,9 @@ footer {
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+
+footer a {
+    color: var(--aqua);
+    margin: 10px;
 }

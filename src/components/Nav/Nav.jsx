@@ -5,11 +5,13 @@ function Nav() {
     return (
         <nav>
             <div id="logo">
-                <h2 id="nav-title">Communitarian</h2>
-                <h3>[ logo ]</h3>
+                <img src="public/images/Communitarian.png" alt="communitarian-logo" />
             </div>
-            <div id="nav-controls">
-                <Link to="/" >Home</Link>
+            <div id="nav-right">
+                <Link to="/" >Log in | Sign up</Link>
+                <div id="nav-controls">
+                    <Link to="/" >Home</Link>
+                </div>
             </div>
         </nav>
     );
