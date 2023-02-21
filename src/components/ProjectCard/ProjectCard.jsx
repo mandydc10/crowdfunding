@@ -7,7 +7,7 @@ import "./ProjectCard.css";
 function ProjectCard(props) {
 
     const { projectData } = props;
-    const [project, setProject] = useState({ pledges: [] });
+    // const [project, setProject] = useState({ total:  });
 
     return (
         <div className="project-card">
@@ -15,6 +15,7 @@ function ProjectCard(props) {
                 <img src={projectData.image} />
                 <h3>{projectData.title}</h3>
                 <p>{projectData.description}</p>
+                <p><span>Total Raised:</span> ${projectData.total}.00</p>
             </Link>
         </div >
     );

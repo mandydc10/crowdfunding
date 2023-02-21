@@ -12,3 +12,9 @@
     height: 300px;
     object-fit: cover;
 }
+
+p span {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+}
