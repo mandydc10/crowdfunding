@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 // Pages
 import HomePage from "./pages/HomePage";
+import CreateUserPage from "./pages/CreateUserPage";
 import LoginPage from "./pages/LoginPage";
 import ProjectPage from "./pages/ProjectPage";
 
@@ -11,14 +12,20 @@ import Footer from "./components/Footer/Footer";
 
 // CSS
 import "./App.css";
+import { useState } from "react";
 
-const Layout = () => (
-  <>
-    <Nav />
-    <Outlet />
-    <Footer />
-  </>
-);
+const Layout = () => {
+
+  const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem("token") !== null)
+
+  return (
+    <>
+      <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Outlet context={[loggedIn, setLoggedIn]} />
+      <Footer />
+    </>
+  );
+}
 
 
 const router = createBrowserRouter([
@@ -26,6 +33,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <HomePage /> },
+      { path: "/signup", element: <CreateUserPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
     ],

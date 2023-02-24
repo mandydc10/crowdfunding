@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import './ProjectPage.css';
-
+// import datepicker from 'react-datepicker';
 
 function ProjectPage() {
     // Set state
@@ -21,13 +21,17 @@ function ProjectPage() {
             });
     }, []);
 
+    // trying to get date to work
+    const date = project.date_created;
+
     return (
-        <div id="project-page">
+        <div id="project-page" className="page-container">
             <h2>{project.title}</h2>
-            <h3>Created at: {project.date_created}</h3>
+            <h3>Date created: {date}</h3>
             <h3>{`Project Status: ${project.is_open}`}</h3>
+            <a href="" className="btn" id="donate-btn">Donate!</a>
             <p>{project.description}</p>
-            <img src="{project.image}" alt="" />
+            <img src={project.image} alt="" />
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => {

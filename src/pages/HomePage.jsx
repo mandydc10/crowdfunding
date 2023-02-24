@@ -21,7 +21,7 @@ function HomePage() {
     }, []);
 
     return (
-        <div id="project-list">
+        <div id="project-list" className="page-container">
             <h1>Home Page</h1>
             <p>Be the change you want to see.</p>
             {projectList.map((project, key) => {
