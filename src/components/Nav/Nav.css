@@ -1,16 +1,15 @@
 nav {
     background-color: var(--yellow);
     height: 305px;
-    display: flex;
-    justify-content: space-between;
     box-shadow: 0px 0px 8px 1px rgb(227, 227, 227);
 }
 
 /* .btn styling set globally */
 
+
 #logo img {
-    height: 265px;
-    margin: 20px 50px;
+    height: 165px;
+    margin: 20px auto;
 }
 
 #nav-right {
@@ -22,5 +21,23 @@ nav {
 
 #nav-controls {
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    padding: 10px;
+}
+
+@media (min-width: 500px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #logo img {
+        height: 265px;
+        margin: 20px 50px;
+    }
+
+    #nav-controls {
+        /* display: flex; */
+        justify-content: right;
+    }
 }

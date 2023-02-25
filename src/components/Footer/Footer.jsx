@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import './Footer.css';
-import fblogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/flogo.png';
+import fblogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/fblogo.png';
 import iglogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/Instagram_Glyph_White.png';
 
 function Footer() {
