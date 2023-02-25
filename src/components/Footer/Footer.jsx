@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './Footer.css';
 // import fblogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/fblogo.png';
-import iglogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/Instagram_Glyph_White.png';
+// import iglogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/Instagram_Glyph_White.png';
 
 function Footer() {
     return (
@@ -11,7 +11,7 @@ function Footer() {
                     {/* <img src={fblogo} width="30px" /> */}
                 </Link>
                 <Link to="/" >
-                    <img src={iglogo} width="30px" />
+                    {/* <img src={iglogo} width="30px" /> */}
                 </Link>
             </div>
             <p>&#169; Communitarian 2023</p>
