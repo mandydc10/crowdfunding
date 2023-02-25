@@ -1,38 +1,45 @@
 import { useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 // Form styling globally
 
 function PledgeForm() {
     const [, setLoggedIn] = useOutletContext();
 
     // State
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
+    const [pledges, setPledges] = useState({
+        project: null,
+        amount: null,
+        comment: "",
+        anonymous: false,
     });
 
     //Hooks
     const navigate = useNavigate();
 
+    const { id } = useParams();
+
     // Actions
     const handleChange = (event) => {
-        const { id, value } = event.target;
+        const { id, value } = event.target; //project ID
 
-        setCredentials((prevCredentials) => ({
-            ...prevCredentials,
+        setPledges((prevPledges) => ({
+            ...prevPledges,
             [id]: value,
         }));
     }
 
+    const authToken = window.localStorage.getItem("token");
+
     const postData = async () => {
         const response = await fetch(
-            `${import.meta.env.VITE_API_URL}api-token-auth/`,
+            `${import.meta.env.VITE_API_URL}pledges/`,
             {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Token ${authToken}`,
                 },
-                body: JSON.stringify(credentials),
+                body: JSON.stringify(pledges),
             }
         );
         return response.json();
@@ -40,15 +47,9 @@ function PledgeForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (credentials.username && credentials.password) {
-            const { token } = await postData();
-            if (token != undefined) {
-                window.localStorage.setItem("token", token);
-                setLoggedIn(true);
-                navigate("/");
-            } else {
-                setLoggedIn(false);
-            }
+        if (authToken) {
+            const postPledges = await postData();
+            navigate("/");
         }
     };
 
@@ -56,25 +57,42 @@ function PledgeForm() {
         <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="project">Project:</label>
                     <input
                         type="text"
-                        id="username"
+                        id="project"
                         onChange={handleChange}
-                        placeholder="Enter username"
+                        placeholder="Enter project name"
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="amount">Amount:</label>
                     <input
-                        type="password"
-                        id="password"
+                        type="text"
+                        id="amount"
                         onChange={handleChange}
-                        placeholder="Password"
+                        placeholder="Enter a whole dollar amount"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="comment">Comment:</label>
+                    <input
+                        type="text"
+                        id="comment"
+                        onChange={handleChange}
+                        placeholder="Comment"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="anonymous">Check this box if you would you like to donate anonymously:</label>
+                    <input
+                        type="checkbox"
+                        id="anonymous"
+                        onChange={handleChange}
                     />
                 </div>
                 <button type="submit" className="btn">
-                    Login
+                    Confirm My Donation!
                 </button>
             </form>
         </div>
