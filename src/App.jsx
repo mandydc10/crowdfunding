@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CreateUserPage from "./pages/CreateUserPage";
 import LoginPage from "./pages/LoginPage";
 import ProjectPage from "./pages/ProjectPage";
+import PledgePage from "./pages/PledgePage";
 
 // Components
 import Nav from "./components/Nav/Nav";
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <HomePage /> },
+      { path: "/donate", element: <PledgePage /> },
       { path: "/signup", element: <CreateUserPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
