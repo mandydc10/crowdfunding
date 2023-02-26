@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import PledgeForm from "../components/PledgeForm/PledgeForm";
 import './ProjectPage.css';
 // import datepicker from 'react-datepicker';
 
@@ -31,6 +32,10 @@ function ProjectPage() {
             <h3>{`Project Status: ${project.is_open}`}</h3>
             <a href="" className="btn" id="donate-btn">Donate!</a>
             <p>{project.description}</p>
+            <div className="pledge-container">
+                <h2>Donate today!</h2>
+                <PledgeForm project={project} />
+            </div>
             <img src={project.image} alt="" />
             <h3>Pledges:</h3>
             <ul>

@@ -2,12 +2,18 @@ import { useState } from "react";
 import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 // Form styling globally
 
-function PledgeForm() {
+function PledgeForm(props) {
+    const projectTitle = props.title;
+    console.log(projectTitle);
+    const id = props.id;
+
     const [, setLoggedIn] = useOutletContext();
+
+    // const id = useParams();
 
     // State
     const [pledges, setPledges] = useState({
-        project: null,
+        project: id,
         amount: null,
         comment: "",
         anonymous: false,
@@ -16,7 +22,7 @@ function PledgeForm() {
     //Hooks
     const navigate = useNavigate();
 
-    const { id } = useParams();
+
 
     // Actions
     const handleChange = (event) => {
@@ -57,13 +63,7 @@ function PledgeForm() {
         <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="project">Project:</label>
-                    <input
-                        type="text"
-                        id="project"
-                        onChange={handleChange}
-                        placeholder="Enter project name"
-                    />
+                    {projectTitle}
                 </div>
                 <div>
                     <label htmlFor="amount">Amount:</label>

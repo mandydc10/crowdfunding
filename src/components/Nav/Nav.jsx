@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "../../images/Communitarian.png";
 import './Nav.css'
 
 function Nav(props) {
@@ -21,7 +22,7 @@ function Nav(props) {
     return (
         <nav>
             <div id="logo">
-                <img src="src/images/Communitarian.png" alt="communitarian-logo" />
+                <img src={Logo} alt="communitarian-logo" />
             </div>
             <div id="nav-right">
                 {!loggedIn && <Link to="/login" className="btn">Log In</Link>}

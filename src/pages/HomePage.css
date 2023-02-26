@@ -10,3 +10,7 @@
 h3 {
     text-align: center;
 }
+
+.create-project-btn {
+    width: 220px;
+}
