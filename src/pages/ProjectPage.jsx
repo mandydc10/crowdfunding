@@ -27,6 +27,10 @@ function ProjectPage() {
     return (
         <div id="project-page" className="page-container">
             <h2>{project.title}</h2>
+            {/* {loggedIn && <div className="edit-delete-btns">
+                <button className="btn">Edit</button>
+                <button className="btn">Delete</button>
+            </div>} */}
             <h3>Date created: {date}</h3>
             <h3>{`Project Status: ${project.is_open}`}</h3>
             <a href="" className="btn" id="donate-btn">Donate!</a>
