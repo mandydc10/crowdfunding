@@ -1,4 +1,5 @@
 :root {
+    --darkcolorRGB: 42, 57, 39;
     --darkcolor: #2a3927;
     --aqua: #25C0C0;
     --yellow: #FFBC30;
@@ -30,10 +31,20 @@ h2 {
     font-family: var(--fancy-font);
 }
 
+h1 {
+    font-size: 42px;
+}
+
 h2 {
     text-align: center;
-    font-size: 38px;
+    font-size: 32px;
     margin: 30px 20px 10px;
+}
+
+h3 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 a {
@@ -44,6 +55,18 @@ a {
 a:hover {
     opacity: 60%;
     /* color: var(--aqua); */
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    color: var(--darkcolor);
+    border-radius: 5px;
 }
 
 .btn {

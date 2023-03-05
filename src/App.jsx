@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/donate", element: <PledgePage projects="projects"/> },
+      { path: "/donate", element: <PledgePage /> },
       { path: "/signup", element: <CreateUserPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
