@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import './ProjectPage.css';
-// import datepicker from 'react-datepicker';
 
 function ProjectPage() {
+
     // Set state
     const [project, setProject] = useState({ pledges: [] });
 
@@ -21,8 +21,12 @@ function ProjectPage() {
             });
     }, []);
 
-    // trying to get date to work
-    const date = project.date_created;
+    // convert ISO date to desired format
+    const options = {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    };
+
+    const date = new Date(project.date_created).toLocaleDateString(undefined, options);
 
     return (
         <div id="project-page" className="page-container">
@@ -31,7 +35,7 @@ function ProjectPage() {
                 <button className="btn">Edit</button>
                 <button className="btn">Delete</button>
             </div>} */}
-            <h3>Date created: {date}</h3>
+            <h3>{`Date created: ${date}`}</h3>
             <h3>{`Project Status: ${project.is_open}`}</h3>
             <a href="" className="btn" id="donate-btn">Donate!</a>
             <p>{project.description}</p>
@@ -40,7 +44,7 @@ function ProjectPage() {
             <ul>
                 {project.pledges.map((pledgeData, key) => {
                     return (
-                        <li>
+                        <li key={key}>
                             ${pledgeData.amount} from {pledgeData.supporter}
                         </li>
                     );
