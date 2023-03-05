@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './footer.css';
-import fblogo from 'src/images/fblogo.png';
-import iglogo from 'src/images/instagram_glyph_white.png';
+import fblogo from '../../../src/images/fblogo.png';
+import iglogo from '../../../src/images/instagram_glyph_white.png';
 
 function Footer() {
     return (
