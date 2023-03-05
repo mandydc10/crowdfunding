@@ -9,7 +9,7 @@ import PledgePage from "./pages/PledgePage";
 
 // Components
 import Nav from "./components/Nav/Nav";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/footer";
 
 // CSS
 import "./App.css";

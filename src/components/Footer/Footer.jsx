@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './Footer.css';
+import './footer.css';
 import fblogo from 'src/images/fblogo.png';
 import iglogo from 'src/images/instagram_glyph_white.png';
 
