@@ -1,25 +1,35 @@
 import { useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 // Form styling globally
 
 function PledgeForm() {
+    const authToken = window.localStorage.getItem("token");
     const [, setLoggedIn] = useOutletContext();
 
+    const [pledges, setPledges] = useState({
+        "project": null,
+        "amount": null,
+        "comment": "",
+        "anonymous": false,
+    })
+
     // State
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
-    });
+    // const [credentials, setCredentials] = useState({
+    //     username: "",
+    //     password: "",
+    // });
 
     //Hooks
     const navigate = useNavigate();
+
+    const { id } = useParams();
 
     // Actions
     const handleChange = (event) => {
         const { id, value } = event.target;
 
-        setCredentials((prevCredentials) => ({
-            ...prevCredentials,
+        setPledges((prevPledges) => ({
+            ...prevPledges,
             [id]: value,
         }));
     }
@@ -56,25 +66,44 @@ function PledgeForm() {
         <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="username">Username:</label>
+                    <label for="project">Choose a project:</label>
+                    <select id="project" name="project">
+                        {project.title.map((projectTitle, key) => {
+                            return (
+                                <option key={key}>
+                                    ${projectTitle.amount}
+                                </option>
+                            );
+                        })}
+                        <option value="volvo">Volvo</option>
+                    </select>
+                    <label htmlFor="amount">Amount:</label>
                     <input
-                        type="text"
-                        id="username"
+                        type="number"
+                        id="amount"
                         onChange={handleChange}
-                        placeholder="Enter username"
+                        placeholder="Enter whole dollar amount"
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="comment">Comment:</label>
                     <input
-                        type="password"
-                        id="password"
+                        type="text"
+                        id="comment"
                         onChange={handleChange}
-                        placeholder="Password"
+                        placeholder="Leave a message of support!"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="anonymous">Check if you wish to remain anonymous:</label>
+                    <input
+                        type="checkbox"
+                        id="anonymous"
+                        onChange={handleChange}
                     />
                 </div>
                 <button type="submit" className="btn">
-                    Login
+                    Confirm Donation!
                 </button>
             </form>
         </div>
