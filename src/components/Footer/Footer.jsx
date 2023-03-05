@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './Footer.css';
-import fblogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/fblogo.png';
-import iglogo from '/Users/amandacook/Desktop/She Codes/GIT/she-codes-python/Project/crowdfunding/src/images/instagram_glyph_white.png';
+import fblogo from 'src/images/fblogo.png';
+import iglogo from 'src/images/instagram_glyph_white.png';
 
 function Footer() {
     return (
