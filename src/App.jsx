@@ -12,7 +12,7 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/footer/footer";
 
 // CSS
-import "./App.css";
+import "./app.css";
 import { useState } from "react";
 
 const Layout = () => {
