@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import './ProjectPage.css';
+import PledgeForm from "../components/PledgeForm/PledgeForm";
 
 function ProjectPage() {
-
+    // const pledgeForm = useRef();
     // Set state
     const [project, setProject] = useState({ pledges: [] });
 
@@ -28,30 +29,37 @@ function ProjectPage() {
 
     const date = new Date(project.date_created).toLocaleDateString(undefined, options);
 
-    const status = project.is_open;
-
     return (
         <div id="project-page" className="page-container">
-            <h2>{project.title}</h2>
+            <h1>{project.title}</h1>
             {/* {loggedIn && <div className="edit-delete-btns">
                 <button className="btn">Edit</button>
                 <button className="btn">Delete</button>
             </div>} */}
-            <h3>{`Date created: ${date}`}</h3>
-            <h3>{`Project Status: ${status}`}</h3>
-            <a href="" className="btn" id="donate-btn">Donate!</a>
+            <h3>{`Date created: ${date} Status: ${project.is_open}`}</h3>
+            <h3></h3>
+            <a className="btn" id="donate-btn">Donate!</a>
             <p>{project.description}</p>
             <img src={project.image} alt="" />
-            <h3>Pledges:</h3>
-            <ul>
-                {project.pledges.map((pledgeData, key) => {
-                    return (
-                        <li key={key}>
-                            ${pledgeData.amount} from {pledgeData.supporter}
-                        </li>
-                    );
-                })}
-            </ul>
+            <div className="pledge-container">
+                <h2>Thank you to our Wonderful sponsors!</h2>
+                <ul>
+                    {project.pledges.map((pledgeData, key) => {
+                        return (
+                            <li key={key}>
+                                ${pledgeData.amount} from {pledgeData.supporter}
+                                <p>"{pledgeData.comment}"</p>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+            <h2>Donate to this project</h2>
+            <PledgeForm />
+            {/* href={pledgeForm} to go inside link element above
+            <div ref={pledgeForm}>
+                
+            </div> */}
         </div>
     );
 }

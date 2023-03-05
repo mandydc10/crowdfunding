@@ -4,9 +4,9 @@ import PledgeForm from "../components/PledgeForm/PledgeForm";
 function PledgePage() {
     return (
         <div className="page-container">
-            <h2>Donate today!</h2>
+            <h1>Donate today!</h1>
             <PledgeForm />
-            <p>test comment</p>
+            <p>Help us create a better world!</p>
         </div>
     )
 }

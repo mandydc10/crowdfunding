@@ -21,13 +21,14 @@ function Nav(props) {
     return (
         <nav>
             <div id="logo">
-                <img src="../../../src/images/communitarian.png" alt="communitarian-logo" />
+                <img src="../src/images/communitarian.png" alt="communitarian-logo" />
             </div>
             <div id="nav-right">
                 {!loggedIn && <Link to="/login" className="btn">Log In</Link>}
-                {loggedIn && /*<p>Welcome, {user.username}!</p> &&*/ <button onClick={handleClick} className="btn">Log Out</button>}
+                {loggedIn && /*<p>Welcome, {user.username}!</p> &&*/ <button onClick={handleClick} className="btn login-btn">Log Out</button>}
                 <div id="nav-controls">
-                    <Link to="/" >Home</Link>
+                    <Link to="/" className="nav-link">Home</Link>
+                    <Link to="/donate" className="nav-link" >Donate</Link>
                 </div>
             </div>
         </nav>

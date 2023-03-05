@@ -1,4 +1,5 @@
 :root {
+    --darkcolorRGB: 42, 57, 39;
     --darkcolor: #2a3927;
     --aqua: #25C0C0;
     --yellow: #FFBC30;
@@ -30,10 +31,20 @@ h2 {
     font-family: var(--fancy-font);
 }
 
+h1 {
+    font-size: 42px;
+}
+
 h2 {
     text-align: center;
-    font-size: 38px;
+    font-size: 32px;
     margin: 30px 20px 10px;
+}
+
+h3 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 a {
@@ -46,6 +57,18 @@ a:hover {
     /* color: var(--aqua); */
 }
 
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    color: var(--darkcolor);
+    border-radius: 5px;
+}
+
 .btn {
     background-color: var(--aqua);
     padding: 10px 20px;
@@ -55,6 +78,7 @@ a:hover {
     box-shadow: 0px 0.5px 2px 0px rgb(174, 174, 174);
     font-size: 16px;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn:hover {
@@ -90,7 +114,8 @@ form {
     max-width: 500px;
 }
 
-input {
+input,
+select {
     margin: 10px 0 20px;
     width: 100%;
     padding: 10px 5px;
