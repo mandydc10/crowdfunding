@@ -28,6 +28,8 @@ function ProjectPage() {
 
     const date = new Date(project.date_created).toLocaleDateString(undefined, options);
 
+    const status = project.is_open;
+
     return (
         <div id="project-page" className="page-container">
             <h2>{project.title}</h2>
@@ -36,7 +38,7 @@ function ProjectPage() {
                 <button className="btn">Delete</button>
             </div>} */}
             <h3>{`Date created: ${date}`}</h3>
-            <h3>{`Project Status: ${project.is_open}`}</h3>
+            <h3>{`Project Status: ${status}`}</h3>
             <a href="" className="btn" id="donate-btn">Donate!</a>
             <p>{project.description}</p>
             <img src={project.image} alt="" />
