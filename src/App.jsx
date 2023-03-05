@@ -12,7 +12,6 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 
 // CSS
-import "./app.css";
 import { useState } from "react";
 
 const Layout = () => {
