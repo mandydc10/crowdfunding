@@ -7,9 +7,20 @@ import './ProjectPage.css';
 function ProjectPage() {
     // Set state
     const [project, setProject] = useState({ pledges: [] });
+    // const [user, setUser] = useState();
 
     // Hooks
     const { id } = useParams();
+
+    const getUser = async (id) => {
+        const userList = await fetch(`${import.meta.env.VITE_API_URL
+            }users/`);
+
+        // const matchUserList = await userList.map(match_id(id) => )
+
+        // .json();
+        // console.log(parsedUserList);
+    }
 
     //Effects
     useEffect(() => {
@@ -24,6 +35,8 @@ function ProjectPage() {
 
     // trying to get date to work
     const date = project.date_created;
+
+    getUser();
 
     return (
         <div id="project-page" className="page-container">
@@ -41,7 +54,7 @@ function ProjectPage() {
             <ul>
                 {project.pledges.map((pledgeData, key) => {
                     return (
-                        <li>
+                        <li key={key}>
                             ${pledgeData.amount} from {pledgeData.supporter}
                         </li>
                     );

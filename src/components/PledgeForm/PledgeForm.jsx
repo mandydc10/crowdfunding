@@ -1,19 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 // Form styling globally
 
-function PledgeForm(props) {
-    const projectTitle = props.title;
-    console.log(projectTitle);
-    const id = props.id;
+function PledgeForm() {
+    const authToken = window.localStorage.getItem("token");
+    const [loggedIn] = useOutletContext();
 
-    const [, setLoggedIn] = useOutletContext();
+    // const [, setLoggedIn] = useOutletContext();
 
-    // const id = useParams();
 
     // State
     const [pledges, setPledges] = useState({
-        project: id,
+        project: null,
         amount: null,
         comment: "",
         anonymous: false,
@@ -22,7 +20,7 @@ function PledgeForm(props) {
     //Hooks
     const navigate = useNavigate();
 
-
+    const id = useParams();
 
     // Actions
     const handleChange = (event) => {
@@ -34,7 +32,7 @@ function PledgeForm(props) {
         }));
     }
 
-    const authToken = window.localStorage.getItem("token");
+    // const authToken = window.localStorage.getItem("token");
 
     const postData = async () => {
         const response = await fetch(
@@ -60,42 +58,54 @@ function PledgeForm(props) {
     };
 
     return (
-        <div className="form-container">
-            <form onSubmit={handleSubmit}>
-                <div>
+        <>
+            {loggedIn ?
+                <div className="form-container">
+                    <form onSubmit={handleSubmit}>
+                        {/* <div>
                     {projectTitle}
-                </div>
-                <div>
-                    <label htmlFor="amount">Amount:</label>
-                    <input
-                        type="text"
-                        id="amount"
-                        onChange={handleChange}
-                        placeholder="Enter a whole dollar amount"
-                    />
-                </div>
-                <div>
-                    <label htmlFor="comment">Comment:</label>
-                    <input
-                        type="text"
-                        id="comment"
-                        onChange={handleChange}
-                        placeholder="Comment"
-                    />
-                </div>
-                <div>
-                    <label htmlFor="anonymous">Check this box if you would you like to donate anonymously:</label>
-                    <input
-                        type="checkbox"
-                        id="anonymous"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="submit" className="btn">
-                    Confirm My Donation!
-                </button>
-            </form>
-        </div>
+                </div> */}
+                        <div>
+                            <label htmlFor="project-id">Project ID:</label>
+                            <input
+                                type="text"
+                                id="projectid"
+                                onChange={handleChange}
+                                placeholder="projectid"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="amount">Amount:</label>
+                            <input
+                                type="text"
+                                id="amount"
+                                onChange={handleChange}
+                                placeholder="Enter a whole dollar amount"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="comment">Comment:</label>
+                            <input
+                                type="text"
+                                id="comment"
+                                onChange={handleChange}
+                                placeholder="Comment"
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="anonymous">Check this box if you would you like to donate anonymously:</label>
+                            <input
+                                type="checkbox"
+                                id="anonymous"
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <button type="submit" className="btn">
+                            Confirm My Donation!
+                        </button>
+                    </form>
+                </div> : (<a href="./LoginPage.jsx">Login to donate!</a>)}
+        </>
     );
 }
 
