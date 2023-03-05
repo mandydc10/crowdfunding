@@ -7,12 +7,12 @@ function Footer() {
     return (
         <footer>
             <div id="socials">
-                {/* <Link to="/" >
-                    <img src={fblogo} width="30px" />
+                <Link to="/" >
+                    <img src='../src/images/fblogo.png' width="30px" />
                 </Link>
                 <Link to="/" >
-                    <img src={iglogo} width="30px" />
-                </Link> */}
+                    <img src='../src/images/instagram_glyph_white.png' width="30px" />
+                </Link>
             </div>
             <p>&#169; Communitarian 2023</p>
         </footer >
