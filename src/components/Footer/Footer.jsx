@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import './Footer.css';
 // import fblogo from '/src/images/fblogo.png';
 // import iglogo from '/src/images/instagram_glyph_white.png';
+// ^^ spent all submission day trying to fix netlify deploy build errors because of these mofos!!
 
 function Footer() {
     return (
