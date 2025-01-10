@@ -9,10 +9,10 @@ function Footer() {
         <footer>
             <div id="socials">
                 <Link to="/" >
-                    <img src='../src/images/fblogo.png' width="30px" />
+                    <img src='/assets/images/fblogo.png' width="30px" />
                 </Link>
                 <Link to="/" >
-                    <img src='../src/images/instagram_glyph_white.png' width="30px" />
+                    <img src='/assets/images/instagram_glyph_white.png' width="30px" />
                 </Link>
             </div>
             <p>&#169; Communitarian 2023</p>
